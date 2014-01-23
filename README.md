@@ -46,6 +46,7 @@ The variables that can be passed to this role with default values are as follows
     - pypandoc
     - ipython
     
+    # http and https proxy if needed
     proxy_env:
       http_proxy:
       https_proxy:
