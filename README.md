@@ -66,7 +66,7 @@ Example
           port: 8888
           profile: user_name
           sha1_password:
-          notebook_dir: /home/<user_name>/notebooks
+          notebook_dir: /home/user_name/notebooks
         
         proxy_env:
           http_proxy: http://proxy.domain.com:8080
