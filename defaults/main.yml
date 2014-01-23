@@ -1,0 +1,33 @@
+---
+# defaults file for ansible-ipython
+
+ipython_notebooks:
+- user:
+  group:
+  port:
+  profile:
+  sha1_password:
+  notebook_dir:
+
+ipython_dependencies:
+- python-devel
+- python-matplotlib
+
+ipython_pip_packages:
+- pyzmq
+- tornado
+- jinja2
+- pygments
+- pandas
+- pypandoc
+- ipython
+
+proxy_env:
+  http_proxy:
+  https_proxy:
+
+_ipython:
+
+  home: /usr
+
+  users_home: /home

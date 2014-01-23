@@ -1,0 +1,15 @@
+---
+galaxy_info:
+  author: Dariusz Owczarek
+  description: Ansible IPython deployment role
+  company: Sabre Inc.
+  license: MIT
+  min_ansible_version: 1.4
+  platforms:
+  - name: EL
+    versions:
+    - 6
+  categories:
+  - development
+  - web
+dependencies: []

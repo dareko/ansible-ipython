@@ -1,0 +1,17 @@
+# {{ ansible_managed }}
+
+c = get_config()
+
+c.FileNotebookManager.notebook_dir = u'{{ item.notebook_dir }}'
+
+c.IPKernelApp.pylab = 'inline'
+
+c.NotebookApp.ip = '{{ inventory_hostname }}'
+c.NotebookApp.port = {{ item.port }}
+c.NotebookApp.open_browser = False
+
+{% if item.sha1_password %}
+c.NotebookApp.password = u'{{ item.sha1_password }}'
+{% endif %}
+
+c.NotebookManager.notebook_dir = u'{{ item.notebook_dir }}'

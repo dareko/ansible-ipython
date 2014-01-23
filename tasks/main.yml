@@ -1,0 +1,49 @@
+---
+# This role conains tasks to deploy the iPhyton server
+
+- name: checking network ports
+  wait_for: host={{ inventory_hostname }} port={{ item.port }} state=stopped timeout=1
+  with_items: ipython_notebooks
+  tags: check
+
+- name: installing dependencies
+  yum: name={{ item }} state=latest
+  with_items: ipython_dependencies
+  tags: install
+
+- name: installing ipython packages
+  pip: name={{ item }} state=present
+  with_items: ipython_pip_packages
+  environment: proxy_env
+  tags: install
+
+- name: creating groups
+  group: name={{ item.group }}
+  with_items: ipython_notebooks
+  tags: user
+
+- name: creating users
+  user: name={{ item.user }} group={{ item.group }}
+  with_items: ipython_notebooks
+  tags: user
+
+- name: creating ipython profile
+  command: "{{ _ipython.home }}/bin/ipython profile create {{ item.profile }}"
+  sudo_user: "{{ item.user }}"
+  with_items: ipython_notebooks
+  tags: config
+
+- name: creating ipython directory
+  file: path={{ item.notebook_dir }} state=directory owner={{ item.user }} group={{ item.group }} mode=0755
+  with_items: ipython_notebooks
+  tags: config
+
+- name: updating ipython configuration
+  template: src=ipython_notebook_config.py.j2 dest={{ _ipython.users_home }}/{{ item.user }}/.ipython/profile_{{ item.profile }}/ipython_notebook_config.py owner={{ item.user }} group={{ item.group }} mode=0644 backup=true
+  with_items: ipython_notebooks
+  tags: config
+
+- name: info
+  pause: prompt="Start IPython by executing 'sudo -u {{ item.user }} ipython notebook --profile={{ item.profile }}', press ENTER to continue"
+  with_items: ipython_notebooks
+  tags: info
