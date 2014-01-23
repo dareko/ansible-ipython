@@ -97,4 +97,4 @@ License
 Author Information
 ------------------
 
-[Dariusz Owczarek](https://galaxy.ansibleworks.com/list#/users/1102)
+[Darek Owczarek](https://galaxy.ansibleworks.com/list#/users/1102)
