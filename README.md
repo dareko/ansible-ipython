@@ -22,12 +22,12 @@ The variables that can be passed to this role with default values are as follows
     # ipython notebooks configuration
     # provide a list of { user, group, port, profile, sha1_password, notebook_dir } items
     # sha1_password can be empty or generated via:
-    #     python -c 'from IPython.lib import passwd; print passwd("<password>")'
+    #     python -c 'from IPython.lib import passwd; print(passwd("<password>"))'
     ipython_notebooks:
-    - user:
-      group:
+    - profile:
       port:
-      profile:
+      user:
+      group:      
       sha1_password:
       notebook_dir:
     
@@ -62,10 +62,10 @@ Example
 2. Add variables to the `group_vars/all` file
 
         ipython_notebooks:
-        - user: user_name
-          group: group_name
+        - profile: profile_name
           port: 8888
-          profile: user_name
+          user: user_name
+          group: group_name
           sha1_password:
           notebook_dir: /home/user_name/notebooks
         
