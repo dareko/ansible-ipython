@@ -2,14 +2,16 @@
 # defaults file for ansible-ipython
 
 ipython_notebooks:
-- user:
-  group:
+- profile:
   port:
-  profile:
+  user:
+  group:  
   sha1_password:
   notebook_dir:
 
 ipython_dependencies:
+- gcc
+- gcc-c++
 - python-devel
 - python-matplotlib
 
@@ -22,12 +24,8 @@ ipython_pip_packages:
 - pypandoc
 - ipython
 
-proxy_env:
-  http_proxy:
-  https_proxy:
+proxy_env: {}
 
 _ipython:
-
   home: /usr
-
   users_home: /home

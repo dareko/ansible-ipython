@@ -1,7 +1,7 @@
 ---
 # This role conains tasks to deploy the iPhyton server
 
-- name: checking network ports
+- name: checking notebooks port
   wait_for: host={{ inventory_hostname }} port={{ item.port }} state=stopped timeout=1
   with_items: ipython_notebooks
   tags: check
@@ -28,8 +28,7 @@
   tags: user
 
 - name: creating ipython profile
-  command: "{{ _ipython.home }}/bin/ipython profile create {{ item.profile }}"
-  sudo_user: "{{ item.user }}"
+  command: "sudo -u {{ item.user }} {{ _ipython.home }}/bin/ipython profile create {{ item.profile }}"
   with_items: ipython_notebooks
   tags: config
 
@@ -44,6 +43,6 @@
   tags: config
 
 - name: info
-  pause: prompt="Start IPython by executing 'sudo -u {{ item.user }} ipython notebook --profile={{ item.profile }}', press ENTER to continue"
+  pause: prompt="Start IPython by executing 'sudo -u {{ item.user }} -i ipython notebook --profile={{ item.profile }}', press ENTER to continue"
   with_items: ipython_notebooks
   tags: info

@@ -9,6 +9,9 @@ galaxy_info:
   - name: EL
     versions:
     - 6
+  - name: Amazon Linux AMI
+    versions:
+    - 2013.09
   categories:
   - development
   - web
