@@ -1,7 +1,7 @@
 Ansible IPython Deployment Role
 ===============================
 
-The [dareko.ipython](https://galaxy.ansibleworks.com/list#/roles/...) role deploys the IPython software on a target host.
+The [dareko.ipython](https://galaxy.ansibleworks.com/list#/roles/250) role deploys the IPython software on a target host.
 
 The IPython notebook users and groups are created by the role if they don't exist.
 
@@ -12,7 +12,7 @@ Requirements
 
 This role requires Ansible 1.4 or higher.
 Platform requirements are listed in the Supported Platforms section of the role details.
-The rhel-epel yum repository must be enabled on a server.
+The rhel-epel yum repository must be enabled on the server.
 
 Role Variables
 --------------
@@ -21,7 +21,8 @@ The variables that can be passed to this role with default values are as follows
 
     # ipython notebooks configuration
     # provide a list of { user, group, port, profile, sha1_password, notebook_dir } items
-    # sha1_password can be empty or generated via `python -c 'from IPython.lib import passwd; print passwd("<password>")'`
+    # sha1_password can be empty or generated via:
+    #     python -c 'from IPython.lib import passwd; print passwd("<password>")'
     ipython_notebooks:
     - user:
       group:
@@ -55,17 +56,17 @@ Example
 1. Add a group to the `hosts` inventory file
 
         [ipython]
-        <hostname>.<domainname>
+        hostname.domainname
 
 2. Add variables to the `group_vars/all` file
 
         ipython_notebooks:
-        - user: <user_name>
-          group: <group_name>
+        - user: user_name
+          group: group_name
           port: 8888
-          profile: <user_name>
+          profile: user_name
           sha1_password:
-          notebook_dir: "/home/<user_name>/notebooks"
+          notebook_dir: /home/<user_name>/notebooks
         
         proxy_env:
           http_proxy: http://proxy.domain.com:8080
