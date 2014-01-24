@@ -1,6 +1,10 @@
 ---
 # defaults file for ansible-ipython
 
+# ipython notebooks configuration
+# provide a list of { profile, port, user, group, sha1_password, notebook_dir } items
+# sha1_password can be empty or generated via:
+#     python -c 'from IPython.lib import passwd; print(passwd("<password>"))'
 ipython_notebooks:
 - profile:
   port:
@@ -9,12 +13,14 @@ ipython_notebooks:
   sha1_password:
   notebook_dir:
 
-ipython_dependencies:
+# list of dependencies
+ipython_packages:
 - gcc
 - gcc-c++
 - python-devel
 - python-matplotlib
 
+# list of pip packages
 ipython_pip_packages:
 - pyzmq
 - tornado
@@ -24,7 +30,10 @@ ipython_pip_packages:
 - pypandoc
 - ipython
 
+# http and https proxy if needed
 proxy_env: {}
+
+### Constants
 
 _ipython:
   home: /usr

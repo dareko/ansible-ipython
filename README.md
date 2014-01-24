@@ -20,7 +20,7 @@ Role Variables
 The variables that can be passed to this role with default values are as follows.
 
     # ipython notebooks configuration
-    # provide a list of { user, group, port, profile, sha1_password, notebook_dir } items
+    # provide a list of { profile, port, user, group, sha1_password, notebook_dir } items
     # sha1_password can be empty or generated via:
     #     python -c 'from IPython.lib import passwd; print(passwd("<password>"))'
     ipython_notebooks:
@@ -31,8 +31,8 @@ The variables that can be passed to this role with default values are as follows
       sha1_password:
       notebook_dir:
     
-    # list of dependencies installed via yum
-    ipython_dependencies:
+    # list of dependencies
+    ipython_packages:
     - python-devel
     - python-matplotlib
     

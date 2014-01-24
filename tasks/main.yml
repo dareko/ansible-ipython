@@ -8,7 +8,7 @@
 
 - name: installing dependencies
   yum: name={{ item }} state=latest
-  with_items: ipython_dependencies
+  with_items: ipython_packages
   tags: install
 
 - name: installing ipython packages
@@ -43,6 +43,6 @@
   tags: config
 
 - name: info
-  pause: prompt="Start IPython by executing 'sudo -u {{ item.user }} -i ipython notebook --profile={{ item.profile }}', press ENTER to continue"
+  pause: prompt="Start IPython Notebook by executing 'sudo -u {{ item.user }} -i ipython notebook --profile={{ item.profile }}', press ENTER to continue"
   with_items: ipython_notebooks
   tags: info
