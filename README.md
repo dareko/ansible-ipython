@@ -5,8 +5,6 @@ The [dareko.ipython](https://galaxy.ansibleworks.com/list#/roles/250) role deplo
 
 The IPython notebook users and groups are created by the role if they don't exist.
 
-GitHub project page: [ansible-ipython](https://github.com/dareko/ansible-ipython).
-
 Requirements
 ------------
 
