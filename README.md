@@ -1,5 +1,5 @@
-Ansible IPython Deployment Role
-===============================
+IPython Notebooks Deployment Role
+=================================
 
 The [dareko.ipython](https://galaxy.ansibleworks.com/list#/roles/250) role deploys the IPython software on a target host.
 
@@ -24,27 +24,27 @@ The variables that can be passed to this role with default values are as follows
     # sha1_password can be empty or generated via:
     #     python -c 'from IPython.lib import passwd; print(passwd("<password>"))'
     ipython_notebooks:
-    - profile:
-      port:
-      user:
-      group:      
-      sha1_password:
-      notebook_dir:
+      - profile:
+        port:
+        user:
+        group:      
+        sha1_password:
+        notebook_dir:
     
     # list of dependencies
     ipython_packages:
-    - python-devel
-    - python-matplotlib
+      - python-devel
+      - python-matplotlib
     
     # list of pip packages
     ipython_pip_packages:
-    - pyzmq
-    - tornado
-    - jinja2
-    - pygments
-    - pandas
-    - pypandoc
-    - ipython
+      - pyzmq
+      - tornado
+      - jinja2
+      - pygments
+      - pandas
+      - pypandoc
+      - ipython
     
     # http and https proxy if needed
     proxy_env:
@@ -57,28 +57,28 @@ Example
 1. Add a group to the `hosts` inventory file
 
         [ipython]
-        hostname.domainname
+        host.domain
 
 2. Add variables to the `group_vars/all` file
 
         ipython_notebooks:
-        - profile: profile_name
-          port: 8888
-          user: user_name
-          group: group_name
-          sha1_password:
-          notebook_dir: /home/user_name/notebooks
+          - profile: profile_name
+            port: 8888
+            user: user_name
+            group: group_name
+            sha1_password:
+            notebook_dir: /home/user_name/notebooks
         
         proxy_env:
-          http_proxy: http://proxy.domain.com:8080
-          https_proxy: http://proxy.domain.com:8080
+          http_proxy: http://proxy.domain:8080
+          https_proxy: http://proxy.domain:8080
 
 3. Add role to the `site.yml` file
 
         - hosts: ipython
           sudo: true
           roles:
-          - { role: dareko.ipython }
+          - role: dareko.ipython
 
 4. Run the `site.yml` playbook
 

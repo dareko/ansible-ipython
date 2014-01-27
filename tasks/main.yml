@@ -18,12 +18,12 @@
   tags: install
 
 - name: creating groups
-  group: name={{ item.group }}
+  group: name={{ item.group }} state=present
   with_items: ipython_notebooks
   tags: user
 
 - name: creating users
-  user: name={{ item.user }} group={{ item.group }}
+  user: name={{ item.user }} group={{ item.group }} state=present
   with_items: ipython_notebooks
   tags: user
 
