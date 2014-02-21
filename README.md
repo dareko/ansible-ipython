@@ -31,8 +31,12 @@ The variables that can be passed to this role with default values are as follows
     
     # list of dependencies
     ipython_packages:
+      - gcc
+      - gcc-c++
+      - libpng-devel
+      - freetype-devel
       - python-devel
-      - python-matplotlib
+      - pandoc
     
     # list of pip packages
     ipython_pip_packages:
@@ -40,6 +44,7 @@ The variables that can be passed to this role with default values are as follows
       - tornado
       - jinja2
       - pygments
+      - matplotlib
       - pandas
       - pypandoc
       - ipython

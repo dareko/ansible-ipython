@@ -17,8 +17,10 @@ ipython_notebooks:
 ipython_packages:
   - gcc
   - gcc-c++
+  - libpng-devel
+  - freetype-devel
   - python-devel
-  - python-matplotlib
+  - pandoc
 
 # list of pip packages
 ipython_pip_packages:
@@ -26,6 +28,7 @@ ipython_pip_packages:
   - tornado
   - jinja2
   - pygments
+  - matplotlib
   - pandas
   - pypandoc
   - ipython
