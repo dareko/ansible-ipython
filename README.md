@@ -54,8 +54,13 @@ The variables that can be passed to this role with default values are as follows
       http_proxy:
       https_proxy:
 
-Example
--------
+Dependencies
+------------
+
+None
+
+Example Playbook
+----------------
 
 1. Add a group to the `hosts` inventory file
 
@@ -71,7 +76,7 @@ Example
             group: group_name
             sha1_password:
             notebook_dir: /home/user_name/notebooks
-        
+
         proxy_env:
           http_proxy: http://proxy.domain:8080
           https_proxy: http://proxy.domain:8080
@@ -86,11 +91,6 @@ Example
 4. Run the `site.yml` playbook
 
         ansible-playbook -i hosts site.yml
-
-Dependencies
-------------
-
-None
 
 License
 -------

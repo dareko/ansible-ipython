@@ -30,6 +30,8 @@ ipython_pip_packages:
   - pygments
   - matplotlib
   - pandas
+  - lxml
+  - openpyxl
   - pypandoc
   - ipython
 
