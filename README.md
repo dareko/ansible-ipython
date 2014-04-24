@@ -33,9 +33,12 @@ The variables that can be passed to this role with default values are as follows
     ipython_packages:
       - gcc
       - gcc-c++
+      - gcc-gfortran
       - libpng-devel
       - freetype-devel
       - python-devel
+      - blas-devel
+      - lapack-devel
       - pandoc
     
     # list of pip packages
@@ -44,10 +47,21 @@ The variables that can be passed to this role with default values are as follows
       - tornado
       - jinja2
       - pygments
+      - numpy
       - matplotlib
       - pandas
+      - lxml
+      - openpyxl
+      - xlrd
+      - twitter
+      - oauth2
       - pypandoc
       - ipython
+      - scipy
+      - patsy
+      - statsmodels
+      - scikit-learn
+      - bokeh
     
     # http and https proxy if needed
     proxy_env:
@@ -76,7 +90,7 @@ Example Playbook
             group: group_name
             sha1_password:
             notebook_dir: /home/user_name/notebooks
-
+        
         proxy_env:
           http_proxy: http://proxy.domain:8080
           https_proxy: http://proxy.domain:8080

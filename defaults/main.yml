@@ -17,9 +17,12 @@ ipython_notebooks:
 ipython_packages:
   - gcc
   - gcc-c++
+  - gcc-gfortran
   - libpng-devel
   - freetype-devel
   - python-devel
+  - blas-devel
+  - lapack-devel
   - pandoc
 
 # list of pip packages
@@ -28,17 +31,26 @@ ipython_pip_packages:
   - tornado
   - jinja2
   - pygments
+  - numpy
   - matplotlib
   - pandas
   - lxml
   - openpyxl
+  - xlrd
+  - twitter
+  - oauth2
   - pypandoc
   - ipython
+  - scipy
+  - patsy
+  - statsmodels
+  - scikit-learn
+  - bokeh
 
 # http and https proxy if needed
 proxy_env: {}
 
-### Constants
+# CONSTANTS
 
 _ipython:
   home: /usr
